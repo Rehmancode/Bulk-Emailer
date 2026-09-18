@@ -1,0 +1,8 @@
+PyQt6==6.10.1
+pandas==2.2.3
+openpyxl==3.1.5
+cryptography==43.0.0
+tzdata==2024.1
+google-api-python-client==2.140.0
+google-auth-httplib2==0.2.0
+google-auth-oauthlib==1.2.1
