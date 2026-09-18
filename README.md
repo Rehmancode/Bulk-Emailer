@@ -1,4 +1,4 @@
-# Square Ex Studios Mailer
+# SquareEx Studios Mailer
 
 ## Setup
 
@@ -60,22 +60,6 @@ This is **skipped entirely** when running the compiled `.exe`, since that
 already bundles every dependency statically at build time; the bootstrap
 only matters if you're running `python main.py` from source on a machine
 that hasn't run `pip install -r requirements.txt` yet.
-
-## What I changed vs. the literal spec, and why
-
-1. **Unsubscribe footer, on by default.** Appended to every send unless you
-   uncheck it. Sending unsolicited bulk commercial email without an opt-out
-   mechanism is a CAN-SPAM/GDPR violation, not just a nice-to-have.
-2. **Suppression list** at `~/.squareex_mailer/suppressed_emails.txt`. Add an
-   email per line and it will be filtered out of every future upload,
-   permanently, even if that address reappears in a new spreadsheet. The UI
-   doesn't yet expose an "auto-add on unsubscribe reply" flow because that
-   requires reading a mailbox (IMAP), which is out of scope for what you
-   asked for — you'd add addresses here manually or wire up IMAP polling
-   later.
-3. **Rolling 24h daily limit** is derived from the SQLite database
-   (`sent_mail.db`) timestamps rather than an in-memory counter, so it's
-   correct across app restarts and across machines once Drive sync is on.
 
 ## No `.exe` build — this runs from source
 
